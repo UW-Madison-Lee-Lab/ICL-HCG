@@ -46,7 +46,7 @@ python EXP_FourGeneration/IOS_2.py
 python EXP_FourGeneration/IOS_3.py
 ```
 You can parallel run them via running them in different tmux windows.
-Arange 4 runs in one 4090 GPU is pratically a good idea and consuming all calculation power.
+Arange 4 python files in one 4090 GPU is practically a good idea and consuming all calculation power.
 If you are interested in how the hyperparameters are chosen, please read these python file :D.
 ### Step 3: Visualize Results
 Then run
@@ -78,7 +78,7 @@ python EXP_FourGeneration/IOS_other_2.py
 python EXP_FourGeneration/IOS_other_3.py
 ```
 You can parallel run them via running them in different tmux windows.
-Arange 4 runs in one 4090 GPU is pratically a good idea and consuming all calculation power.
+Arange 4 python files in one 4090 GPU is practically a good idea and consuming all calculation power.
 If you are interested in how the hyperparameters are chosen, please read these python file :D.
 ### Step 3: Visualize Results
 Then run
@@ -114,7 +114,7 @@ python EXP_NUMTRAIN/IO_other_B0.py
 python EXP_NUMTRAIN/IO_other_B7.py
 ```
 You can parallel run them via running them in different tmux windows.
-Arange 4 python in one 4090 GPU is pratically a good idea and consuming all calculation power. (So there are 32 python files, 4 or 8 Geforce 4090 are recommended to finish them in 3-2 days.)
+Arange 4 python files in one 4090 GPU is practically a good idea and consuming all calculation power. (So there are 32 python files, each contains 2 runs on Transformer and 6 runs on other models, 4 or 8 Geforce 4090 are recommended to finish them in 3-2 days.)
 If you are interested in how the hyperparameters are chosen, please read these python file :D.
 ### Step 3: Visualize Results
 Then run
@@ -125,4 +125,94 @@ python IO.py
 In order to get corresponding Fig. 18.
 ```bash
 python IO_together.py
+```
+
+## Fig. 10 in Sec. 4.5. Effect of Imbalanced In-Context Samples
+### Step 1: Go to the Folder ICL-HCG/
+```bash
+cd ICL-HCG
+```
+### Step 2: Training Models
+```bash
+python EXP_IMBALANCE/IO_1_0.py
+python EXP_IMBALANCE/IO_1_1.py
+python EXP_IMBALANCE/IO_1_2.py
+python EXP_IMBALANCE/IO_1_3.py
+python EXP_IMBALANCE/IO_4_0.py
+python EXP_IMBALANCE/IO_4_1.py
+python EXP_IMBALANCE/IO_4_2.py
+python EXP_IMBALANCE/IO_4_3.py
+python EXP_IMBALANCE/IO_9_0.py
+python EXP_IMBALANCE/IO_9_1.py
+python EXP_IMBALANCE/IO_9_2.py
+python EXP_IMBALANCE/IO_9_3.py
+```
+You can parallel run them via running them in different tmux windows.
+Arange 4 python files in one 4090 GPU is practically a good idea and consuming all calculation power.
+If you are interested in how the hyperparameters are chosen, please read these python file :D.
+### Step 3: Visualize Results
+Then run
+```bash
+cd plot/EXP_IMBALANCE
+python IO.py
+```
+
+## Fig. 11 in Sec. 4.6. The Benefit of Hypothesis Prefix
+### Step 1: Go to the Folder ICL-HCG/
+```bash
+cd ICL-HCG
+```
+### Step 2: Training Models
+```bash
+python EXP_ICL/IO_0h_0.py
+python EXP_ICL/IO_0h_1.py
+python EXP_ICL/IO_0h_2.py
+python EXP_ICL/IO_0h_3.py
+python EXP_ICL/IO_1h_0.py
+python EXP_ICL/IO_1h_1.py
+python EXP_ICL/IO_1h_2.py
+python EXP_ICL/IO_1h_3.py
+```
+You can parallel run them via running them in different tmux windows.
+Arange 4 python files in one 4090 GPU is practically a good idea and consuming all calculation power.
+If you are interested in how the hyperparameters are chosen, please read these python file :D.
+### Step 3: Visualize Results
+Then run
+```bash
+cd plot/EXP_ICL
+python IO.py
+```
+
+## Fig. 12 in Sec. 4.7. The Benefit of Hypothesis Prefix
+### Step 1: Go to the Folder ICL-HCG/
+```bash
+cd ICL-HCG
+```
+### Step 2: Training Models (16 \times 2 \times 10 = 420 GPU hours)
+```bash
+python EXP_Diversity/IO_1h8_0.py
+python EXP_Diversity/IO_1h8_1.py
+python EXP_Diversity/IO_1h8_2.py
+python EXP_Diversity/IO_1h8_3.py
+python EXP_Diversity/IO_1h16_0.py
+python EXP_Diversity/IO_1h16_1.py
+python EXP_Diversity/IO_1h16_2.py
+python EXP_Diversity/IO_1h16_3.py
+python EXP_Diversity/IO_1h24_0.py
+python EXP_Diversity/IO_1h24_1.py
+python EXP_Diversity/IO_1h24_2.py
+python EXP_Diversity/IO_1h24_3.py
+python EXP_Diversity/IO_1h32_0.py
+python EXP_Diversity/IO_1h32_1.py
+python EXP_Diversity/IO_1h32_2.py
+python EXP_Diversity/IO_1h32_3.py
+```
+You can parallel run them via running them in different tmux windows.
+Arange 4 python files in one 4090 GPU is practically a good idea and consuming all calculation power.
+If you are interested in how the hyperparameters are chosen, please read these python file :D.
+### Step 3: Visualize Results
+Then run
+```bash
+cd plot/EXP_Diversity
+python IO.py
 ```
