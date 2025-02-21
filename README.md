@@ -8,7 +8,7 @@
 
 Recent research has investigated the underlying mechanisms of in-context learning (ICL) both theoretically and empirically, often using data generated from simple function classes.
 However, the existing work often focuses on the sequence consists solely of labeled examples, while in practice, labeled examples are typically accompanied by an \emph{instruction}, providing some side information about the task. 
-In this work, we propose **ICL with hypothesis-class guidance (ICL-HCG)**, a novel synthetic data model for ICL where the input context consists of the literal description of a (finite) hypothesis class $\mathcal{H}$ and $(x,y)$ pairs from a hypothesis chosen from $\mathcal{H}$.
+In this work, we propose **ICL with hypothesis-class guidance (ICL-HCG)**, a novel synthetic data model for ICL where the input context consists of the literal description of a (finite) hypothesis class $\mathcal{H}$ and $(x,y)$ pairs from a hypothesis chosen from ℋ.
 Under our framework ICL-HCG, we conduct extensive experiments to explore: 
 (i) varied generalization ability to new hypothesis classes; 
 (ii) different model architectures;
