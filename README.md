@@ -4,7 +4,7 @@
     <p>UW-Madison</p>
     </h4>
 
-**Paper Link**: [arxiv.org/abs/2402.18819](https://arxiv.org/abs/2402.18819)
+**Paper Link**: ToBeRevised [arxiv.org/abs/2402.18819](https://arxiv.org/abs/2402.18819)
 
 Recent research has investigated the underlying mechanisms of in-context learning (ICL) both theoretically and empirically, often using data generated from simple function classes.
 However, the existing work often focuses on the sequence consists solely of labeled examples, while in practice, labeled examples are typically accompanied by an *instruction*, providing some side information about the task. 
