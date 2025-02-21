@@ -19,7 +19,7 @@ Under our framework ICL-HCG, we conduct extensive experiments to explore:
 As a result, we show that 
 (a) Transformers can successfully learn ICL-HCG and generalize to unseen hypotheses and unseen hypothesis classes, and (b) compared with ICL without instruction, ICL-HCG achieves significantly higher accuracy, demonstrating the role of instructions. 
 
-# Experiments
+# Experiments (total ~510 Geforce 4090 hours)
 The following sections give guidance for reproducing all the experiments in the paper.
 
 ## Environment
@@ -34,7 +34,7 @@ see the install_package.txt to install everything for our experiments from a pla
 ```bash
 cd ICL-HCG
 ```
-### Step 2: Training Models
+### Step 2: Training Models (8 file * 1 run/file * 10+h/run / 4 = 20+ GPU hours)
 ```bash
 python EXP_FourGeneration/IO_0.py
 python EXP_FourGeneration/IO_1.py
@@ -66,7 +66,7 @@ python IOS_together.py
 ```bash
 cd ICL-HCG
 ```
-### Step 2: Training Models
+### Step 2: Training Models (8 file * 3 run/file * 7 h/run / 4 = 40+ GPU hours)
 ```bash
 python EXP_FourGeneration/IO_other_0.py
 python EXP_FourGeneration/IO_other_1.py
@@ -98,7 +98,7 @@ python IOS_together.py
 ```bash
 cd ICL-HCG
 ```
-### Step 2: Training Models
+### Step 2: Training Models (32 file * 2~6 run/file * 10-h/run / 4 = 320- GPU hours, other models are faster)
 ```bash
 python EXP_NUMTRAIN/IO_t_A0.py
 ...
@@ -132,7 +132,7 @@ python IO_together.py
 ```bash
 cd ICL-HCG
 ```
-### Step 2: Training Models
+### Step 2: Training Models (12 file * 1 run/file * 10+h/run / 4 = 30+ GPU hours)
 ```bash
 python EXP_IMBALANCE/IO_1_0.py
 python EXP_IMBALANCE/IO_1_1.py
@@ -162,7 +162,7 @@ python IO.py
 ```bash
 cd ICL-HCG
 ```
-### Step 2: Training Models
+### Step 2: Training Models (8 file * 1 run/file * 10+h/run / 4 = 20+ GPU hours)
 ```bash
 python EXP_ICL/IO_0h_0.py
 python EXP_ICL/IO_0h_1.py
@@ -188,7 +188,7 @@ python IO.py
 ```bash
 cd ICL-HCG
 ```
-### Step 2: Training Models (16 \times 2 \times 10 = 420 GPU hours)
+### Step 2: Training Models (16 file * 2 run/file * 10+h/run / 4 = 80+ GPU hours)
 ```bash
 python EXP_Diversity/IO_1h8_0.py
 python EXP_Diversity/IO_1h8_1.py
