@@ -30,11 +30,11 @@ Ubuntu 22.04.3 LTS + Geforce 4090
 see the install_package.txt to install everything for our experiments from a plain reserved server. Each training consume ~10 hours on 4090, so we recommend to reserve 4xGeforce 4090 if you are interested in reproduce our results.
 
 ## Fig. 5&6 in Sec. 4.2. Four Types of Generalization
-#### Step 1: Go to the Folder ICL-HCG/
+### Step 1: Go to the Folder ICL-HCG/
 ```bash
 cd ICL-HCG
 ```
-#### Step 2: Training
+### Step 2: Training Models
 ```bash
 python FourGeneration/IO_0.py
 python FourGeneration/IO_1.py
@@ -48,15 +48,18 @@ python FourGeneration/IOS_3.py
 You can parallel run them via running them in different tmux windows.
 Arange 4 runs in one 4090 GPU is pratically a good idea and consuming all calculation power.
 If you are interested in how the hyperparameters are chosen, please read these python file :D.
-#### Step 2 (Method 2): Download Results from Dropbox
-Download and unzip the corresponding .zip file from [Dropbox link](https://www.dropbox.com/scl/fo/q0rj5eyfd9wasatbnpy7r/h?rlkey=epjq87hvf3br3ljqa6a1g50bn&dl=0).
-#### Step 3: Visualize Results
+### Step 3: Visualize Results
 Then run
 ```bash
-python BayesianSimulation_Visualize.py
+cd plot/EXP_FourGeneralization
+IO_separate.py
+IOS_separate.py
 ```
-to get Figure4.pdf.
-
+In order to get corresponding Fig. 14 & 15.
+```bash
+IO_together.py
+IOS_together.py
+```
 ### Figure 5
 #### Step 1: Go to the Folder
 ```bash
