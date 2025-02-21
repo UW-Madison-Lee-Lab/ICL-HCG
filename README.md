@@ -36,14 +36,14 @@ cd ICL-HCG
 ```
 ### Step 2: Training Models
 ```bash
-python FourGeneration/IO_0.py
-python FourGeneration/IO_1.py
-python FourGeneration/IO_2.py
-python FourGeneration/IO_3.py
-python FourGeneration/IOS_0.py
-python FourGeneration/IOS_1.py
-python FourGeneration/IOS_2.py
-python FourGeneration/IOS_3.py
+python EXP_FourGeneration/IO_0.py
+python EXP_FourGeneration/IO_1.py
+python EXP_FourGeneration/IO_2.py
+python EXP_FourGeneration/IO_3.py
+python EXP_FourGeneration/IOS_0.py
+python EXP_FourGeneration/IOS_1.py
+python EXP_FourGeneration/IOS_2.py
+python EXP_FourGeneration/IOS_3.py
 ```
 You can parallel run them via running them in different tmux windows.
 Arange 4 runs in one 4090 GPU is pratically a good idea and consuming all calculation power.
@@ -52,137 +52,77 @@ If you are interested in how the hyperparameters are chosen, please read these p
 Then run
 ```bash
 cd plot/EXP_FourGeneralization
-IO_separate.py
-IOS_separate.py
+python IO_separate.py
+python IOS_separate.py
 ```
 In order to get corresponding Fig. 14 & 15.
 ```bash
-IO_together.py
-IOS_together.py
+python IO_together.py
+python IOS_together.py
 ```
-### Figure 5
-#### Step 1: Go to the Folder
+
+## Fig. 7&8 in Sec. 4.3. Model Architecture Comparisons
+### Step 1: Go to the Folder ICL-HCG/
 ```bash
-cd NumericalComputation/Figure5/
+cd ICL-HCG
 ```
-#### Step 2 (Method 1): Get Results from Scratch
+### Step 2: Training Models
 ```bash
-python 5.1.2_Preprocess.py
+python EXP_FourGeneration/IO_other_0.py
+python EXP_FourGeneration/IO_other_1.py
+python EXP_FourGeneration/IO_other_2.py
+python EXP_FourGeneration/IO_other_3.py
+python EXP_FourGeneration/IOS_other_0.py
+python EXP_FourGeneration/IOS_other_1.py
+python EXP_FourGeneration/IOS_other_2.py
+python EXP_FourGeneration/IOS_other_3.py
 ```
-One can reduce the sample size "K = 80000" for the Monte Carlo simulation in the code to accelerate the process, though this will likely result in increased variance.
-#### Step 2 (Method 2): Download Results from Dropbox
-Download and unzip the corresponding .zip file from [Dropbox link](https://www.dropbox.com/scl/fo/q0rj5eyfd9wasatbnpy7r/h?rlkey=epjq87hvf3br3ljqa6a1g50bn&dl=0).
-#### Step 3: Visualize Results
+You can parallel run them via running them in different tmux windows.
+Arange 4 runs in one 4090 GPU is pratically a good idea and consuming all calculation power.
+If you are interested in how the hyperparameters are chosen, please read these python file :D.
+### Step 3: Visualize Results
 Then run
 ```bash
-python 5.1.2_Visualize.py
+cd plot/EXP_MODEL
+python IO_separate.py
+python IOS_separate.py
 ```
-to get Figure5.pdf.
-
-### Figure 6
-#### Step 1: Go to the Folder
+In order to get corresponding Fig. 16 & 17.
 ```bash
-cd NumericalComputation/Figure5/
+python IO_together.py
+python IOS_together.py
 ```
-#### Step 2 (Method 1): Get Results from Scratch
-```bash
-python EarlyAscent_Preprocess.py
-```
-One can reduce the sample size "K = 10000" for the Monte Carlo simulation in the code to accelerate the process, though this will likely result in increased variance.
-**Note**: The code takes a long time to run since it loops through these parameters:
-d_list = \[1,2,3,5,8\]
-and
-demon_list = \[0,1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536,131072\].
 
-#### Step 2 (Method 2): Download Results from Dropbox
-Download and unzip the corresponding .zip file from [Dropbox link](https://www.dropbox.com/scl/fo/q0rj5eyfd9wasatbnpy7r/h?rlkey=epjq87hvf3br3ljqa6a1g50bn&dl=0).
-#### Step 3: Visualize Results
+## Fig. 9 in Sec. 4.4. Effect of Training Hypothesis Class Count
+### Step 1: Go to the Folder ICL-HCG/
+```bash
+cd ICL-HCG
+```
+### Step 2: Training Models
+```bash
+python EXP_NUMTRAIN/IO_t_A0.py
+...
+python EXP_NUMTRAIN/IO_t_A7.py
+python EXP_NUMTRAIN/IO_t_B0.py
+...
+python EXP_NUMTRAIN/IO_t_B7.py
+python EXP_NUMTRAIN/IO_other_A0.py
+...
+python EXP_NUMTRAIN/IO_other_A7.py
+python EXP_NUMTRAIN/IO_other_B0.py
+...
+python EXP_NUMTRAIN/IO_other_B7.py
+```
+You can parallel run them via running them in different tmux windows.
+Arange 4 python in one 4090 GPU is pratically a good idea and consuming all calculation power. (So there are 32 python files, 4 or 8 Geforce 4090 are recommended to finish them in 3-2 days.)
+If you are interested in how the hyperparameters are chosen, please read these python file :D.
+### Step 3: Visualize Results
 Then run
 ```bash
-python EarlyAscent_Visualize.py
+cd plot/EXP_NUMTRAIN
+python IO.py
 ```
-to get Figure6.pdf.
-
-## RealWorld LLM Experiment
-### Table 1 (running with GPT-4 2023/11/20)
-#### Step 1: Go to the Folder
+In order to get corresponding Fig. 18.
 ```bash
-cd RealWorldLLMExperiment/Table1/
-```
-#### Step 2: Register Your Openai key
-```bash
-vi call_openai.py
-```
-Replace the string "yourkey" in the code with your Openai key.
-#### Step 3: Get Results from Scratch
-For k (for instance k=4) in-context examples, run
-```bash
-python Ushape.py --k 4
-```
-
-### Figure 8
-Note: In the following codes, the inferences of llama2, mistral, and mixtral are based on [vllm](https://docs.vllm.ai/en/latest/). One will need at least 4xA100 to run the biggest models, including mixtral and llama-2-70b-hf.
-#### Step 1: Go to the Folder
-```bash
-cd RealWorldLLMExperiment/Figure8/
-```
-#### Step 2: Register Your Openai key
-```bash
-vi call_openai.py
-```
-Replace the string "yourkey" in the code with your Openai key.
-#### Step 3 (Method 1): Get Results from Scratch
-```bash
-python test_gpt4.py
-python test_llama-2-13b-hf.py
-python test_llama-2-70b-hf.py
-python test_mistral.py
-python test_mixtral.py
-```
-#### Step 3 (Method 2): Download Results from Dropbox
-Download and unzip the corresponding .zip file from [Dropbox link](https://www.dropbox.com/scl/fo/q0rj5eyfd9wasatbnpy7r/h?rlkey=epjq87hvf3br3ljqa6a1g50bn&dl=0).
-#### Step 4: Visualize Results
-After step 3, run:
-```
-python ZeroICL.py
-```
-
-## Transformer Experiment
-The following code can be run on a single 4090 GPU.
-#### Step 1: Go to the Folder
-```bash
-cd TransformerExperiment/
-```
-### Figure 9
-#### Step 2 (Method 1): Get Results from Scratch
-```bash
-python TS_Regular4_delta_run.py
-```
-#### Step 2 (Method 2): Download Results from Dropbox
-Download and unzip the corresponding .zip file from [Dropbox link](https://www.dropbox.com/scl/fo/q0rj5eyfd9wasatbnpy7r/h?rlkey=epjq87hvf3br3ljqa6a1g50bn&dl=0).
-#### Step 3: Visualize Results
-```bash
-python TS_Regular4_delta_visual.py
-```
-### Figure 10
-#### Step 2 (Method 1): Get Results from Scratch
-```bash
-python TS_RegularM_run.py
-```
-#### Step 2 (Method 2): Download Results from Dropbox
-Download and unzip the corresponding .zip file from [Dropbox link](https://www.dropbox.com/scl/fo/q0rj5eyfd9wasatbnpy7r/h?rlkey=epjq87hvf3br3ljqa6a1g50bn&dl=0).
-#### Step 3: Visualize Results
-```bash
-python TS_RegularM_visual.py
-```
-### Figure 11
-#### Step 2 (Method 1): Get Results from Scratch
-```bash
-python TS_D_d_run.py
-```
-#### Step 2 (Method 2): Download Results from Dropbox
-Download and unzip the corresponding .zip file from [Dropbox link](https://www.dropbox.com/scl/fo/q0rj5eyfd9wasatbnpy7r/h?rlkey=epjq87hvf3br3ljqa6a1g50bn&dl=0).
-#### Step 3: Visualize Results
-```bash
-python TS_D_d_visual.py
+python IO_together.py
 ```
